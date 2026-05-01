@@ -191,6 +191,3 @@ A full-stack web application for managing lost and found items at Clonfert Colle
 
 ISC
 
-## Contact
-
-For issues or questions, contact the Clonfert College administration office.
