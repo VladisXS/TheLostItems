@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя Школа - Знайдені предмети</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-icon">📘</span>
+                <span class="brand-text">Моя Школа</span>
+            </div>
+
+            <nav class="menu">
+                <a href="#" class="menu-item active">⌂ Головна</a>
+                <a id="addItemNavLink" href="admin.html" class="menu-item" hidden>⊕ Додати предмет</a>
+            </nav>
+
+            <a href="admin.html" class="logout-link">↪ Вийти</a>
+        </aside>
+
+        <main class="content">
+            <header class="topbar">
+                <div class="topbar-right">
+                    <div class="user-chip-wrapper">
+                        <button id="userMenuButton" class="user-chip" type="button" aria-haspopup="true" aria-expanded="false">
+                            <div class="avatar">A</div>
+                            <div class="user-meta">
+                                <span id="userRole" class="role">Гість</span>
+                                <span id="userName" class="name">Не авторизовано</span>
+                            </div>
+                        </button>
+                        <div id="userDropdown" class="user-dropdown" hidden>
+                            <button id="authActionBtn" type="button" class="dropdown-item">Увійти</button>
+                            <a id="adminPanelLink" href="admin.html" class="dropdown-item" hidden>Адмін панель</a>
+                            <button id="logoutBtn" type="button" class="dropdown-item" hidden>Вийти з системи</button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="items-section">
+                <div class="section-header">
+                    <div>
+                        <h1>Знайдені предмети</h1>
+                        <p>Список усіх знайдених речей у школі. Якщо це ваша річ - зверніться до адміністрації.</p>
+                    </div>
+                    <a id="addItemCta" href="admin.html" class="add-btn" hidden>+ Додати предмет</a>
+                </div>
+
+                <div class="filters">
+                    <select id="categoryFilter" aria-label="Категорія">
+                        <option>Усі категорії</option>
+                    </select>
+                    <select id="locationFilter" aria-label="Локація">
+                        <option>Усі локації</option>
+                    </select>
+                    <select id="sortFilter" aria-label="Сортування">
+                        <option value="newest">Найновіші спочатку</option>
+                        <option value="oldest">Найстаріші спочатку</option>
+                        <option value="name_asc">Назва А-Я</option>
+                        <option value="name_desc">Назва Я-А</option>
+                    </select>
+                </div>
+
+                <div id="itemsContainer" class="items-grid">
+                    <div class="loading">Завантаження предметів...</div>
+                </div>
+
+                <div id="pagination" class="pagination"></div>
+            </section>
+        </main>
+    </div>
+
+    <div id="itemModal" class="item-modal" aria-hidden="true">
+        <div class="item-modal-content">
+            <button id="closeModalBtn" class="modal-close" type="button">✕</button>
+            <h3 id="modalTitle">Предмет</h3>
+            <p id="modalDescription"></p>
+            <p id="modalDate" class="modal-meta"></p>
+            <p id="modalLocation" class="modal-meta"></p>
+            <p id="modalCategory" class="modal-meta"></p>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Lost & Found</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Lost & Found Admin</h1>
+                <p>Clonfert College</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" id="logoutBtn" class="logout-btn">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="loginSection" class="login-section">
+        <div class="login-container">
+            <h2>Admin Login</h2>
+            <p class="login-subtitle">Sign in with Google to add, edit, and manage found items.</p>
+            
+            <a href="http://localhost:5000/api/auth/google?next=/admin.html" class="btn-google">
+                <img src="https://www.google.com/favicon.ico" alt="Google">
+                Sign in with Google
+            </a>
+            <p class="info-text">Увійдіть через Google. Адмін-доступ надається лише адміністраторам.</p>
+        </div>
+    </div>
+
+    <div id="adminDashboard" class="admin-dashboard" style="display: none;">
+        <main class="container">
+            <section class="manage-items-section">
+                <h2>Manage Items</h2>
+                <div id="adminItemsContainer" class="items-grid">
+                    <div class="loading">Loading items...</div>
+                </div>
+            </section>
+            
+            <section class="add-item-section">
+                <h2>Add New Item</h2>
+                <form id="addItemForm" class="form-grid">
+                    <div class="form-group">
+                        <label for="itemName">Item Name *</label>
+                        <input type="text" id="itemName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemDescription">Description *</label>
+                        <textarea id="itemDescription" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemDate">Date Found *</label>
+                        <input type="date" id="itemDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mainImage">Додати головну фотографію (1 шт.)</label>
+                        <input type="file" id="mainImage" accept="image/*">
+                        <small>Головне фото використовується як обкладинка. Авто-стискання (max 10MB до стиснення).</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Додати другорядні фотографії (максимум 3 шт.)</label>
+                        <small>Фото 1 → колонка 1, фото 2 → колонка 2, фото 3 → колонка 3.</small>
+                        <div class="secondary-grid">
+                            <div class="secondary-slot">
+                                <div class="secondary-title">Фото 1</div>
+                                <input type="file" id="secondaryImage1" accept="image/*">
+                                <div id="secondaryPreview1" class="secondary-preview" aria-label="Preview photo 1"></div>
+                                <button id="clearSecondary1" type="button" class="btn btn-secondary secondary-clear">Очистити</button>
+                            </div>
+                            <div class="secondary-slot">
+                                <div class="secondary-title">Фото 2</div>
+                                <input type="file" id="secondaryImage2" accept="image/*">
+                                <div id="secondaryPreview2" class="secondary-preview" aria-label="Preview photo 2"></div>
+                                <button id="clearSecondary2" type="button" class="btn btn-secondary secondary-clear">Очистити</button>
+                            </div>
+                            <div class="secondary-slot">
+                                <div class="secondary-title">Фото 3</div>
+                                <input type="file" id="secondaryImage3" accept="image/*">
+                                <div id="secondaryPreview3" class="secondary-preview" aria-label="Preview photo 3"></div>
+                                <button id="clearSecondary3" type="button" class="btn btn-secondary secondary-clear">Очистити</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Item</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Clonfert College Lost & Found Admin Panel.</p>
+    </footer>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
